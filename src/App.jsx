@@ -58,7 +58,7 @@ const timetable = [
 function Navbar() {
   return (
     <nav className="navbar">
-      <h2>PTPH</h2>
+      <h2>Pusat Tuisyen Permata Hikmah</h2>
 
       <div className="nav-links">
         <a href="#programmes">Programmes</a>
