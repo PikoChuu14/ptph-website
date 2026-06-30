@@ -254,8 +254,7 @@ function Register() {
         <p className="badge">Enquiry</p>
         <h2>Interested to Register?</h2>
         <p>
-          Parents can contact PTPH through WhatsApp or submit a simple Google
-          Form. This keeps enquiries more organized and easier to follow up.
+          Contact us through WhatsApp and we reach you as soon as possible.
         </p>
       </div>
 
