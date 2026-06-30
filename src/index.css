@@ -644,4 +644,31 @@ footer p {
   .footer-map {
     height: 220px;
   }
+
+  .register-section {
+  display: block;
+  background: #eff6ff;
+}
+
+.register-content {
+  max-width: 760px;
+}
+
+.register-content h2 {
+  font-size: 52px;
+  margin: 0 0 20px;
+  color: #111827;
+}
+
+.register-content p {
+  font-size: 20px;
+  line-height: 1.6;
+  color: #4b5563;
+  margin-bottom: 28px;
+}
+
+.register-whatsapp-btn {
+  display: inline-block;
+  margin-top: 8px;
+}
 }

@@ -250,29 +250,21 @@ function Timetable() {
 function Register() {
   return (
     <section className="section register-section" id="register">
-      <div>
+      <div className="register-content">
         <p className="badge">Enquiry</p>
-        <h2>Interested to Register?</h2>
-        <p>
-          Contact us through WhatsApp and we reach you as soon as possible.
-        </p>
-      </div>
 
-      <div className="register-card">
-        <h3>Quick Registration Flow</h3>
-        <ol>
-          <li>Parent views programme and timetable</li>
-          <li>Parent clicks WhatsApp or registration form</li>
-          <li>Staff confirms class availability</li>
-          <li>Student joins the suitable class</li>
-        </ol>
+        <h2>Interested to Register?</h2>
+
+        <p>
+          Contact us through WhatsApp and we will reach you as soon as possible.
+        </p>
 
         <a
-          href="https://forms.gle/"
+          href="https://wa.me/60123456789"
           target="_blank"
-          className="primary-btn full-btn"
+          className="primary-btn register-whatsapp-btn"
         >
-          Open Registration Form
+          Contact WhatsApp
         </a>
       </div>
     </section>
