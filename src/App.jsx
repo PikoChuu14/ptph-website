@@ -23,7 +23,7 @@ const programmes = [
     title: "Early Education",
     description:
       "Learning support for pre-primary students to build strong basic reading, writing, counting, and learning habits.",
-    subjects: ["Tadika", "Belajar", "Mengaji dan Belajar"],
+    subjects: ["Tadika", "Belajar"],
   },
   {
     title: "Primary School Tuition",
