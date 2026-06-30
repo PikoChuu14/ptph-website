@@ -1,3 +1,23 @@
+import { useEffect, useState } from "react";
+
+const servicePosts = [
+  {
+    title: "Pengambilan 2026",
+    description: "Subjek sekolah rendah, small group, guru berpengalaman.",
+    image: "/fb-post/ambilan2026.png",
+  },
+  {
+    title: "Pakej Peperiksaan Darjah 4",
+    description: "Fokus BM, BI, Matematik dan Sains untuk persediaan peperiksaan.",
+    image: "/fb-post/darjah4.png",
+  },
+  {
+    title: "Kelas Khas Persiapan Darjah 1",
+    description: "Membaca BM, membaca BI dan Matematik untuk kanak-kanak 5/6 tahun.",
+    image: "/fb-post/darjah1.png",
+  },
+];
+
 const programmes = [
   {
     title: "Early Education",
@@ -97,21 +117,7 @@ function Hero() {
         </div>
       </div>
 
-      <div className="hero-card">
-        <h3>PTPH Purpose</h3>
-        <p>
-          To help children build a strong learning foundation through structured
-          academic classes, basic Islamic education, reading support, and
-          teacher-guided learning.
-        </p>
-
-        <div className="mini-list">
-          <span>Pre-primary</span>
-          <span>Standard 1 - 4</span>
-          <span>Academic Subjects</span>
-          <span>Fardu Ain & Mengaji</span>
-        </div>
-      </div>
+      <ServiceCarousel />
     </section>
   );
 }
@@ -237,6 +243,74 @@ function Register() {
         </a>
       </div>
     </section>
+  );
+}
+
+function ServiceCarousel() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const goToNext = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === servicePosts.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const goToPrevious = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? servicePosts.length - 1 : prevIndex - 1
+    );
+  };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      goToNext();
+    }, 7000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="service-carousel">
+      <div className="carousel-header">
+        <div>
+          <h3>Promotions & Programmes</h3>
+        </div>
+      </div>
+
+      <div className="carousel-window">
+        <div
+          className="carousel-track"
+          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+        >
+          {servicePosts.map((post) => (
+            <div className="carousel-slide" key={post.title}>
+              <img src={post.image} alt={post.title} />
+              <div className="slide-content">
+                <h4>{post.title}</h4>
+                <p>{post.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <button className="carousel-btn prev-btn" onClick={goToPrevious}>
+          ‹
+        </button>
+        <button className="carousel-btn next-btn" onClick={goToNext}>
+          ›
+        </button>
+      </div>
+
+      <div className="carousel-dots">
+        {servicePosts.map((post, index) => (
+          <button
+            key={post.title}
+            className={currentIndex === index ? "dot active-dot" : "dot"}
+            onClick={() => setCurrentIndex(index)}
+          ></button>
+        ))}
+      </div>
+    </div>
   );
 }
 
