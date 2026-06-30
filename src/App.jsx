@@ -51,10 +51,30 @@ const programmes = [
 ];
 
 const benefits = [
-  "Early education from pre-primary until Standard 4",
-  "Experienced teachers from government schools",
-  "Academic, Islamic, and reading support in one centre",
-  "Easy enquiry through WhatsApp or registration form",
+  {
+    title: "Early Learning Support",
+    description:
+      "PTPH supports children from pre-primary level until Standard 4 to build a strong learning foundation.",
+    image: "/why-ptph/early-learning.jpg",
+  },
+  {
+    title: "Experienced Teachers",
+    description:
+      "Classes are guided by experienced teachers who also teach in government schools.",
+    image: "/why-ptph/cikgu.jpg",
+  },
+  {
+    title: "Complete Learning Support",
+    description:
+      "PTPH offers academic subjects, Islamic education, reading support, Mengaji, and Jawi.",
+    image: "/why-ptph/quran-recite.jpg",
+  },
+  {
+    title: "Easy Parent Enquiry",
+    description:
+      "Parents can easily check information and contact PTPH through WhatsApp or registration form.",
+    image: "/why-ptph/whatsapp.jpg",
+  },
 ];
 
 const timetable = [
@@ -78,9 +98,17 @@ const timetable = [
 function Navbar() {
   return (
     <nav className="navbar">
-      <h2>Pusat Tuisyen Permata Hikmah</h2>
+      
+      <div className="brand">
+        <div className="brand-logo">
+          <img src="/icons/ptph-icon.jpeg" alt="PTPH Logo" />
+        </div>
+
+        <h2>Pusat Tuisyen Permata Hikmah</h2>
+      </div>
 
       <div className="nav-links">
+        <a href="#why-ptph">Why PTPH?</a>
         <a href="#programmes">Programmes</a>
         <a href="#timetable">Timetable</a>
         <a href="#register">Register</a>
@@ -93,7 +121,6 @@ function Hero() {
   return (
     <section className="hero">
       <div className="hero-text">
-        <p className="badge">Pusat Tuisyen Permata Hikmah</p>
 
         <h1>Early Education & Tuition Support for Young Learners</h1>
 
@@ -134,18 +161,25 @@ function SectionTitle({ label, title, description }) {
 
 function Benefits() {
   return (
-    <section className="section">
+    <section className="section" id="why-ptph">
       <SectionTitle
-        label="Why Website?"
-        title="Benefits for PTPH"
-        description="The website acts as a central information platform for parents and staff."
+        label="Why PTPH?"
+        title="Why Parents Choose PTPH?"
+        description="PTPH focuses on early learning, experienced teaching, and complete support for young students."
       />
 
       <div className="benefit-grid">
         {benefits.map((benefit, index) => (
-          <div className="benefit-card" key={benefit}>
-            <div className="benefit-number">{index + 1}</div>
-            <p>{benefit}</p>
+          <div className="benefit-card visual-benefit-card" key={benefit.title}>
+            <div className="benefit-image-wrapper">
+              <img src={benefit.image} alt={benefit.title} />
+            </div>
+
+            <div className="benefit-content">
+              <div className="benefit-number">{index + 1}</div>
+              <h3>{benefit.title}</h3>
+              <p>{benefit.description}</p>
+            </div>
           </div>
         ))}
       </div>
