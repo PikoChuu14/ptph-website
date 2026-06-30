@@ -348,33 +348,6 @@ function ServiceCarousel() {
   );
 }
 
-function FuturePlan() {
-  return (
-    <section className="section light-section">
-      <SectionTitle
-        label="Future Upgrade"
-        title="Can Grow Into a Full System Later"
-        description="The first version is simple, but the structure can be expanded in the future."
-      />
-
-      <div className="timeline">
-        <div>
-          <h3>Phase 1</h3>
-          <p>Information website with programmes, timetable, and contact.</p>
-        </div>
-        <div>
-          <h3>Phase 2</h3>
-          <p>Online registration form and enquiry management.</p>
-        </div>
-        <div>
-          <h3>Phase 3</h3>
-          <p>Admin dashboard, attendance tracking, and student records.</p>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function Footer() {
   return (
     <footer className="site-footer">
@@ -407,7 +380,6 @@ function App() {
       <Programmes />
       <Timetable />
       <Register />
-      <FuturePlan />
       <Footer />
     </>
   );
