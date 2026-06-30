@@ -377,9 +377,23 @@ function FuturePlan() {
 
 function Footer() {
   return (
-    <footer>
-      <h3>Pusat Tuisyen Permata Hikmah</h3>
-      <p>Simple website prototype for presentation and future improvement.</p>
+    <footer className="site-footer">
+      <div className="footer-content">
+        <h3>Pusat Tuisyen Permata Hikmah</h3>
+
+        <div className="footer-info">
+          <p>
+            <strong>Address:</strong> NO 93-2 JALAN BINA 1, BANDAR SERI ALAM,
+            MASAI, 81750, JOHOR
+          </p>
+          <p>
+            <strong>Tel:</strong> 012 - 345 6789
+          </p>
+          <p>
+            <strong>Email:</strong> permatahikmah@example.com
+          </p>
+        </div>
+      </div>
     </footer>
   );
 }

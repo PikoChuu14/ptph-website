@@ -560,3 +560,46 @@ footer p {
   margin: 0;
   color: #b08a3c; /* gold/brown tone matching the logo */
 }
+
+.site-footer {
+  padding: 26px 8%;
+  background: #111827;
+  color: white;
+  text-align: left;
+}
+
+.footer-content {
+  max-width: 720px;
+}
+
+.site-footer h3 {
+  margin: 0 0 10px;
+  font-size: 22px;
+  line-height: 1.2;
+  color: #d4af37;
+}
+
+.footer-info p {
+  margin: 4px 0;
+  color: #d1d5db;
+  line-height: 1.35;
+  font-size: 14px;
+}
+
+.footer-info strong {
+  color: white;
+}
+
+@media (max-width: 600px) {
+  .site-footer {
+    padding: 22px 6%;
+  }
+
+  .site-footer h3 {
+    font-size: 19px;
+  }
+
+  .footer-info p {
+    font-size: 13px;
+  }
+}
