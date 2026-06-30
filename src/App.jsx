@@ -352,19 +352,35 @@ function Footer() {
   return (
     <footer className="site-footer">
       <div className="footer-content">
-        <h3>Pusat Tuisyen Permata Hikmah</h3>
+        <div className="footer-info-block">
+          <h3>Pusat Tuisyen Permata Hikmah</h3>
 
-        <div className="footer-info">
-          <p>
-            <strong>Address:</strong> NO 93-2 JALAN BINA 1, BANDAR SERI ALAM,
-            MASAI, 81750, JOHOR
-          </p>
-          <p>
-            <strong>Tel:</strong> 012 - 345 6789
-          </p>
-          <p>
-            <strong>Email:</strong> permatahikmah@example.com
-          </p>
+          <div className="footer-info">
+            <p>
+              <strong>Address:</strong> NO 93-2 JALAN BINA 1, BANDAR SERI ALAM,
+              MASAI, 81750, JOHOR
+            </p>
+            <p>
+              <strong>Tel:</strong> 012 - 345 6789
+            </p>
+            <p>
+              <strong>Email:</strong> permatahikmah@example.com
+            </p>
+          </div>
+        </div>
+
+        <div className="footer-map-block">
+          <h4>Find Us</h4>
+
+          <div className="footer-map">
+            <iframe
+              title="Pusat Tuisyen Permata Hikmah Location"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.441389112916!2d103.86993067310021!3d1.5053229610602785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da6bf0727d7073%3A0xe4702d1829fbfe37!2sPusat%20Tuisyen%20Permata%20Hikmah%20PTPH!5e0!3m2!1sen!2smy!4v1782828384861!5m2!1sen!2smy"
+              loading="lazy"
+              allowFullScreen
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
         </div>
       </div>
     </footer>
