@@ -95,6 +95,14 @@ function Navbar() {
         <a href="#why-ptph">Kenapa PTPH?</a>
         <a href="#programmes">Program</a>
         <a href="#register">Daftar</a>
+        {/* adding link to datang.my */}
+        <a className="datang-link"
+          href="https://web.datang.my/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Datang.my
+          </a>
       </div>
     </nav>
   );

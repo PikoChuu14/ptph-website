@@ -855,3 +855,8 @@ footer p {
     right: 10px;
   }
 }
+
+.datang-link {
+  color: #2563eb;
+  font-weight: bold;
+}
