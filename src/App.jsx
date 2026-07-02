@@ -79,24 +79,6 @@ const benefits = [
   },
 ];
 
-const timetable = [
-  {
-    day: "Monday",
-    time: "8:00 PM - 9:30 PM",
-    className: "Mathematics / Science",
-  },
-  {
-    day: "Wednesday",
-    time: "8:00 PM - 9:30 PM",
-    className: "Bahasa Melayu / English",
-  },
-  {
-    day: "Saturday",
-    time: "10:00 AM - 12:00 PM",
-    className: "SPM Intensive Class",
-  },
-];
-
 function Navbar() {
   return (
     <nav className="navbar">
@@ -112,7 +94,6 @@ function Navbar() {
       <div className="nav-links">
         <a href="#why-ptph">Kenapa PTPH?</a>
         <a href="#programmes">Program</a>
-        <a href="#timetable">Jadual</a>
         <a href="#register">Daftar</a>
       </div>
     </nav>
@@ -204,39 +185,6 @@ function Programmes() {
             </div>
           </div>
         ))}
-      </div>
-    </section>
-  );
-}
-
-function Timetable() {
-  return (
-    <section className="section" id="timetable">
-      <SectionTitle
-        label="Schedule"
-        title="Sample Class Timetable"
-        description="A timetable section helps reduce repeated questions about class time and availability."
-      />
-
-      <div className="table-wrapper">
-        <table>
-          <thead>
-            <tr>
-              <th>Day</th>
-              <th>Time</th>
-              <th>Class</th>
-            </tr>
-          </thead>
-          <tbody>
-            {timetable.map((item) => (
-              <tr key={item.day}>
-                <td>{item.day}</td>
-                <td>{item.time}</td>
-                <td>{item.className}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
       </div>
     </section>
   );
@@ -489,7 +437,6 @@ function App() {
       <Hero />
       <Benefits />
       <Programmes />
-      <Timetable />
       <Register />
       <Footer />
     </>
