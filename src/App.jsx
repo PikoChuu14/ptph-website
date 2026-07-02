@@ -20,59 +20,61 @@ const servicePosts = [
 
 const programmes = [
   {
-    title: "Early Education",
+    title: "Pendidikan Awal",
     description:
-      "Learning support for pre-primary students to build strong basic reading, writing, counting, and learning habits.",
-    subjects: ["Tadika", "Belajar"],
+      "Sokongan pembelajaran untuk kanak-kanak pra-sekolah bagi membina asas membaca, menulis, mengira dan tabiat belajar yang baik.",
+    subjects: ["Tadika", "Belajar", "Mengaji dan Belajar"],
   },
   {
-    title: "Primary School Tuition",
+    title: "Tuisyen Sekolah Rendah",
     description:
-      "Academic support for primary school students from Year 1 until Year 4, following important school subjects.",
+      "Bimbingan akademik untuk murid Tahun 1 hingga Tahun 4 berdasarkan subjek penting di sekolah.",
     subjects: ["Tahun 1", "Tahun 2", "Tahun 3", "Tahun 4"],
   },
   {
-    title: "Academic Subjects",
+    title: "Subjek Akademik",
     description:
-      "Core subject guidance to help students improve their understanding and confidence in class.",
+      "Bimbingan subjek teras untuk membantu murid meningkatkan kefahaman dan keyakinan dalam pembelajaran.",
     subjects: [
       "Bahasa Melayu",
       "Bahasa Inggeris",
       "Matematik",
       "Sains",
+      "Sains / BI",
+      "Matematik & Sains",
+      "BM & English",
     ],
   },
   {
-    title: "Islamic & Reading Classes",
+    title: "Kelas Islamik & Membaca",
     description:
-      "Basic Islamic education and reading support to help children strengthen their foundation.",
-    subjects: ["Fardu Ain", "Mengaji", "Jawi"],
+      "Pendidikan asas Islam dan sokongan membaca untuk membantu kanak-kanak mengukuhkan asas pembelajaran.",
+    subjects: ["Fardu Ain", "Mengaji", "Jawi", "Mengaji dan Jawi"],
   },
 ];
-
 const benefits = [
   {
-    title: "Early Learning Support",
+    title: "Sokongan Pembelajaran Awal",
     description:
-      "PTPH supports children from pre-primary level until Standard 4 to build a strong learning foundation.",
+      "PTPH membantu kanak-kanak dari peringkat pra-sekolah sehingga Tahun 4 membina asas pembelajaran yang kukuh.",
     image: "/why-ptph/early-learning.jpg",
   },
   {
-    title: "Experienced Teachers",
+    title: "Guru Berpengalaman",
     description:
-      "Classes are guided by experienced teachers who also teach in government schools.",
+      "Kelas dibimbing oleh guru berpengalaman yang juga mengajar di sekolah kerajaan.",
     image: "/why-ptph/cikgu.jpg",
   },
   {
-    title: "Complete Learning Support",
+    title: "Sokongan Pembelajaran Lengkap",
     description:
-      "PTPH offers academic subjects, Islamic education, reading support, Mengaji, and Jawi.",
+      "PTPH menawarkan subjek akademik, pendidikan Islam, membaca, mengaji dan Jawi.",
     image: "/why-ptph/quran-recite.jpg",
   },
   {
-    title: "Easy Parent Enquiry",
+    title: "Pertanyaan Ibu Bapa Lebih Mudah",
     description:
-      "Parents can easily check information and contact PTPH through WhatsApp or registration form.",
+      "Ibu bapa boleh melihat maklumat kelas dan terus menghubungi PTPH melalui WhatsApp.",
     image: "/why-ptph/whatsapp.jpg",
   },
 ];
@@ -108,10 +110,10 @@ function Navbar() {
       </div>
 
       <div className="nav-links">
-        <a href="#why-ptph">Why PTPH?</a>
-        <a href="#programmes">Programmes</a>
-        <a href="#timetable">Timetable</a>
-        <a href="#register">Register</a>
+        <a href="#why-ptph">Kenapa PTPH?</a>
+        <a href="#programmes">Program</a>
+        <a href="#timetable">Jadual</a>
+        <a href="#register">Daftar</a>
       </div>
     </nav>
   );
@@ -122,24 +124,24 @@ function Hero() {
     <section className="hero">
       <div className="hero-text">
 
-        <h1>Early Education & Tuition Support for Young Learners</h1>
+        <h1>Pendidikan Awal & Bimbingan Tuisyen untuk Anak Anda</h1>
 
         <p>
-          PTPH provides early education and tuition support for children from
-          pre-primary level until Standard 4. Classes are guided by experienced
-          teachers who also teach in government schools.
+          PTPH menyediakan pendidikan awal dan bimbingan tuisyen untuk kanak-kanak
+          dari peringkat pra-sekolah sehingga Tahun 4. Kelas dibimbing oleh guru
+          berpengalaman yang juga mengajar di sekolah kerajaan.
         </p>
 
         <div className="hero-buttons">
           <a href="#register" className="primary-btn">
-            Register Interest
+            Daftar Minat
           </a>
           <a
             href="https://wa.me/60123456789"
             target="_blank"
             className="secondary-btn"
           >
-            Contact WhatsApp
+            Hubungi WhatsApp
           </a>
         </div>
       </div>
@@ -163,9 +165,9 @@ function Benefits() {
   return (
     <section className="section" id="why-ptph">
       <SectionTitle
-        label="Why PTPH?"
-        title="Why Parents Choose PTPH?"
-        description="PTPH focuses on early learning, experienced teaching, and complete support for young students."
+        label="Kenapa PTPH?"
+        title="Mengapa Ibu Bapa Memilih PTPH?"
+        description="PTPH menekankan pada pembelajaran awal, pengajaran berpengalaman, dan sokongan menyeluruh untuk pelajar muda."
       />
 
       <div className="benefit-grid">
@@ -191,9 +193,9 @@ function Programmes() {
   return (
     <section className="section light-section" id="programmes">
       <SectionTitle
-        label="Programmes"
-        title="Subjects and Classes Offered"
-        description="PTPH offers early education, academic tuition, and basic Islamic learning support for young students."
+        label="Program"
+        title="Mata Pelajaran dan Kelas yang Ditawarkan"
+        description="PTPH menawarkan pendidikan awal, bimbingan akademik, dan sokongan pembelajaran Islam asas untuk pelajar muda."
       />
 
       <div className="card-grid programme-grid">
@@ -251,12 +253,12 @@ function Register() {
   return (
     <section className="section register-section" id="register">
       <div className="register-content">
-        <p className="badge">Enquiry</p>
+        <p className="badge">Pertanyaan</p>
 
-        <h2>Interested to Register?</h2>
+        <h2>Minat untuk mendaftar?</h2>
 
         <p>
-          Contact us through WhatsApp and we will reach you as soon as possible.
+          Hubungi kami melalui WhatsApp untuk pertanyaan lanjut atau klik butang di bawah untuk mendaftar minat anda.
         </p>
 
         <a
@@ -264,7 +266,7 @@ function Register() {
           target="_blank"
           className="primary-btn register-whatsapp-btn"
         >
-          Contact WhatsApp
+          Hubungi WhatsApp
         </a>
       </div>
     </section>
@@ -298,7 +300,7 @@ function ServiceCarousel() {
     <div className="service-carousel">
       <div className="carousel-header">
         <div>
-          <h3>Promotions & Programmes</h3>
+          <h3>Promosi & Program</h3>
         </div>
       </div>
 
@@ -361,7 +363,7 @@ function Footer() {
         </div>
 
         <div className="footer-map-block">
-          <h4>Find Us</h4>
+          <h4>Cari Kami</h4>
 
           <div className="footer-map">
             <iframe
