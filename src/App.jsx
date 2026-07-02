@@ -275,6 +275,7 @@ function Register() {
 
 function ServiceCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [selectedPost, setSelectedPost] = useState(null);
 
   const goToNext = () => {
     setCurrentIndex((prevIndex) =>
@@ -291,53 +292,95 @@ function ServiceCarousel() {
   useEffect(() => {
     const interval = setInterval(() => {
       goToNext();
-    }, 7000);
+    }, 4000);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="service-carousel">
-      <div className="carousel-header">
-        <div>
-          <h3>Promosi & Program</h3>
+    <>
+      <div className="service-carousel">
+        <div className="carousel-header">
+          <div>
+            <h3>Promosi & Program</h3>
+          </div>
         </div>
-      </div>
 
-      <div className="carousel-window">
-        <div
-          className="carousel-track"
-          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-        >
-          {servicePosts.map((post) => (
-            <div className="carousel-slide" key={post.title}>
-              <img src={post.image} alt={post.title} />
-              <div className="slide-content">
-                <h4>{post.title}</h4>
-                <p>{post.description}</p>
+        <div className="carousel-window">
+          <div
+            className="carousel-track"
+            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+          >
+            {servicePosts.map((post) => (
+              <div
+                className="carousel-slide clickable-slide"
+                key={post.title}
+                onClick={() => setSelectedPost(post)}
+              >
+                <img src={post.image} alt={post.title} />
+
+                <div className="slide-content">
+                  <h4>{post.title}</h4>
+                  <p>{post.description}</p>
+                </div>
               </div>
-            </div>
+            ))}
+          </div>
+
+          <button
+            className="carousel-btn prev-btn"
+            onClick={(event) => {
+              event.stopPropagation();
+              goToPrevious();
+            }}
+          >
+            ‹
+          </button>
+
+          <button
+            className="carousel-btn next-btn"
+            onClick={(event) => {
+              event.stopPropagation();
+              goToNext();
+            }}
+          >
+            ›
+          </button>
+        </div>
+
+        <div className="carousel-dots">
+          {servicePosts.map((post, index) => (
+            <button
+              key={post.title}
+              className={currentIndex === index ? "dot active-dot" : "dot"}
+              onClick={() => setCurrentIndex(index)}
+            ></button>
           ))}
         </div>
 
-        <button className="carousel-btn prev-btn" onClick={goToPrevious}>
-          ‹
-        </button>
-        <button className="carousel-btn next-btn" onClick={goToNext}>
-          ›
-        </button>
+        <p className="carousel-hint">Klik poster untuk lihat dengan lebih jelas</p>
       </div>
 
-      <div className="carousel-dots">
-        {servicePosts.map((post, index) => (
-          <button
-            key={post.title}
-            className={currentIndex === index ? "dot active-dot" : "dot"}
-            onClick={() => setCurrentIndex(index)}
-          ></button>
-        ))}
-      </div>
-    </div>
+      {selectedPost && (
+        <div className="modal-overlay" onClick={() => setSelectedPost(null)}>
+          <div className="post-modal" onClick={(event) => event.stopPropagation()}>
+            <button
+              className="modal-close-btn"
+              onClick={() => setSelectedPost(null)}
+            >
+              ×
+            </button>
+
+            <img src={selectedPost.image} alt={selectedPost.title} />
+
+            <div className="modal-text">
+              <h3>{selectedPost.title}</h3>
+              <p>{selectedPost.description}</p>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 
