@@ -275,7 +275,7 @@ function Register() {
 
 function ServiceCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [selectedPost, setSelectedPost] = useState(null);
+  const [selectedPostIndex, setSelectedPostIndex] = useState(null);
 
   const goToNext = () => {
     setCurrentIndex((prevIndex) =>
@@ -289,13 +289,30 @@ function ServiceCarousel() {
     );
   };
 
+  const goToNextModal = () => {
+    setSelectedPostIndex((prevIndex) =>
+      prevIndex === servicePosts.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const goToPreviousModal = () => {
+    setSelectedPostIndex((prevIndex) =>
+      prevIndex === 0 ? servicePosts.length - 1 : prevIndex - 1
+    );
+  };
+
   useEffect(() => {
+    if (selectedPostIndex !== null) return;
+
     const interval = setInterval(() => {
       goToNext();
     }, 4000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [selectedPostIndex]);
+
+  const selectedPost =
+    selectedPostIndex !== null ? servicePosts[selectedPostIndex] : null;
 
   return (
     <>
@@ -311,11 +328,11 @@ function ServiceCarousel() {
             className="carousel-track"
             style={{ transform: `translateX(-${currentIndex * 100}%)` }}
           >
-            {servicePosts.map((post) => (
+            {servicePosts.map((post, index) => (
               <div
                 className="carousel-slide clickable-slide"
                 key={post.title}
-                onClick={() => setSelectedPost(post)}
+                onClick={() => setSelectedPostIndex(index)}
               >
                 <img src={post.image} alt={post.title} />
 
@@ -358,24 +375,73 @@ function ServiceCarousel() {
           ))}
         </div>
 
-        <p className="carousel-hint">Klik poster untuk lihat dengan lebih jelas</p>
+        <p className="carousel-hint">
+          Klik poster untuk lihat dengan lebih jelas
+        </p>
       </div>
 
       {selectedPost && (
-        <div className="modal-overlay" onClick={() => setSelectedPost(null)}>
-          <div className="post-modal" onClick={(event) => event.stopPropagation()}>
+        <div
+          className="modal-overlay"
+          onClick={() => setSelectedPostIndex(null)}
+        >
+          <div
+            className="post-modal"
+            onClick={(event) => event.stopPropagation()}
+          >
             <button
               className="modal-close-btn"
-              onClick={() => setSelectedPost(null)}
+              onClick={() => setSelectedPostIndex(null)}
             >
               ×
             </button>
 
-            <img src={selectedPost.image} alt={selectedPost.title} />
+            <div className="modal-image-window">
+              <div
+                className="modal-image-track"
+                style={{
+                  transform: `translateX(-${selectedPostIndex * 100}%)`,
+                }}
+              >
+                {servicePosts.map((post) => (
+                  <div className="modal-image-slide" key={post.title}>
+                    <img src={post.image} alt={post.title} />
+                  </div>
+                ))}
+              </div>
+
+              <button
+                className="modal-nav-btn modal-prev-btn"
+                onClick={goToPreviousModal}
+              >
+                ‹
+              </button>
+
+              <button
+                className="modal-nav-btn modal-next-btn"
+                onClick={goToNextModal}
+              >
+                ›
+              </button>
+            </div>
 
             <div className="modal-text">
               <h3>{selectedPost.title}</h3>
               <p>{selectedPost.description}</p>
+
+              <div className="modal-dots">
+                {servicePosts.map((post, index) => (
+                  <button
+                    key={post.title}
+                    className={
+                      selectedPostIndex === index
+                        ? "dot active-dot"
+                        : "dot"
+                    }
+                    onClick={() => setSelectedPostIndex(index)}
+                  ></button>
+                ))}
+              </div>
             </div>
           </div>
         </div>
