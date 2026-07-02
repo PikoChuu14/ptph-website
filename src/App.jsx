@@ -136,13 +136,6 @@ function Hero() {
           <a href="#register" className="primary-btn">
             Daftar Minat
           </a>
-          <a
-            href="https://wa.me/60123456789"
-            target="_blank"
-            className="secondary-btn"
-          >
-            Hubungi WhatsApp
-          </a>
         </div>
       </div>
 
