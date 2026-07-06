@@ -79,10 +79,13 @@ const benefits = [
   },
 ];
 
+const parentRegistrationFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSdwRqNXkJTiXVDTxzgY0oG93gWtO_Q2XyiBQzkKkL4sa_4eKg/viewform?usp=dialog";
+const careerApplicationFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSe2bu3FXqCHh-raBZm6SvYsLFhLsQNE-DBRzkgrw69hPNxgQg/viewform?usp=dialog";
+const whatsappUrl = "https://wa.me/60123456789";
+
 function Navbar() {
   return (
     <nav className="navbar">
-      
       <div className="brand">
         <div className="brand-logo">
           <img src="/icons/ptph-icon.jpeg" alt="PTPH Logo" />
@@ -95,14 +98,16 @@ function Navbar() {
         <a href="#why-ptph">Kenapa PTPH?</a>
         <a href="#programmes">Program</a>
         <a href="#register">Daftar</a>
-        {/* adding link to datang.my */}
-        <a className="datang-link"
-          href="https://web.datang.my/"
+        <a href="#join-team">Sertai Kami</a>
+
+        <a
+          href="https://datang.my"
           target="_blank"
           rel="noopener noreferrer"
+          className="datang-link"
         >
           Datang.my
-          </a>
+        </a>
       </div>
     </nav>
   );
@@ -202,21 +207,81 @@ function Register() {
   return (
     <section className="section register-section" id="register">
       <div className="register-content">
-        <p className="badge">Pertanyaan</p>
+        <p className="badge">Pendaftaran Murid</p>
 
-        <h2>Minat untuk mendaftar?</h2>
+        <h2>Berminat untuk Daftar Anak Anda?</h2>
 
         <p>
-          Hubungi kami melalui WhatsApp untuk pertanyaan lanjut atau klik butang di bawah untuk mendaftar minat anda.
+          Ibu bapa boleh mengisi borang pendaftaran minat secara online. Pihak
+          PTPH akan menyemak maklumat dan menghubungi ibu bapa untuk tindakan
+          seterusnya.
         </p>
 
-        <a
-          href="https://wa.me/60123456789"
-          target="_blank"
-          className="primary-btn register-whatsapp-btn"
-        >
-          Hubungi WhatsApp
-        </a>
+        <div className="cta-buttons">
+          <a
+            href={parentRegistrationFormUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="primary-btn register-whatsapp-btn"
+          >
+            Isi Borang Pendaftaran
+          </a>
+
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="secondary-btn"
+          >
+            Hubungi WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function JoinTeam() {
+  return (
+    <section className="section join-team-section" id="join-team">
+      <div className="join-team-content">
+        <div>
+          <p className="badge">Kerjaya & Latihan Industri</p>
+
+          <h2>Sertai Pasukan PTPH</h2>
+
+          <p>
+            PTPH turut membuka peluang kepada individu yang berminat untuk
+            menyertai pasukan sebagai tenaga pengajar, staf sokongan, atau
+            pelajar latihan industri.
+          </p>
+
+          <p>
+            Calon boleh mengisi borang permohonan secara online. Maklumat yang
+            dihantar akan dikumpulkan dalam Google Sheets untuk memudahkan
+            semakan oleh pihak pengurusan.
+          </p>
+
+          <a
+            href={careerApplicationFormUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="primary-btn"
+          >
+            Isi Borang Permohonan
+          </a>
+        </div>
+
+        <div className="join-team-card">
+          <h3>Peluang yang Sesuai</h3>
+
+          <ul>
+            <li>Latihan industri</li>
+            <li>Guru tuisyen</li>
+            <li>Staf pentadbiran</li>
+            <li>Tenaga sokongan program</li>
+          </ul>
+        </div>
       </div>
     </section>
   );
@@ -446,6 +511,7 @@ function App() {
       <Benefits />
       <Programmes />
       <Register />
+      <JoinTeam />
       <Footer />
     </>
   );
