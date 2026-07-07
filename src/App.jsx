@@ -2,18 +2,18 @@ import { useEffect, useState } from "react";
 
 import {
   siteInfo,
-  contactInfo,
-  formLinks,
+  contactInfo as defaultContactInfo,
+  formLinks as defaultFormLinks,
   heroContent,
   servicePosts,
   benefits,
   programmes,
   sectionContent,
   registerContent,
-  joinTeamContent,
+  joinTeamContent as defaultJoinTeamContent,
 } from "./data/siteContent";
 
-function Navbar() {
+function Navbar({contactInfo}) {
   return (
     <nav className="navbar">
       <div className="brand">
@@ -43,7 +43,7 @@ function Navbar() {
   );
 }
 
-function Hero() {
+function Hero({ contactInfo }) {
   return (
     <section className="hero">
       <div className="hero-text">
@@ -136,7 +136,7 @@ function Programmes() {
   );
 }
 
-function Register() {
+function Register({ contactInfo, formLinks }) {
   return (
     <section className="section register-section" id="register">
       <div className="register-content">
@@ -172,7 +172,7 @@ function Register() {
   );
 }
 
-function JoinTeam() {
+function JoinTeam({ joinTeamContent, formLinks }) {
   return (
     <section className="section join-team-section" id="join-team">
       <div className="join-team-content">
@@ -386,7 +386,7 @@ function ServiceCarousel() {
   );
 }
 
-function Footer() {
+function Footer({contactInfo}) {
   return (
     <footer className="site-footer">
       <div className="footer-content">
@@ -425,16 +425,34 @@ function Footer() {
 }
 
 function App() {
+  const [cmsContent, setCmsContent] = useState(null);
+
+  useEffect(() => {
+    fetch("/content/cmsContent.json")
+      .then((response) => response.json())
+      .then((data) => setCmsContent(data))
+      .catch((error) => {
+        console.error("Failed to load CMS content:", error);
+      });
+  }, []);
+
+  const contactInfo = cmsContent?.contactInfo || defaultContactInfo;
+  const formLinks = cmsContent?.formLinks || defaultFormLinks;
+  const joinTeamContent =
+    cmsContent?.joinTeamContent || defaultJoinTeamContent;
+
   return (
     <>
-      <Navbar />
-      <Hero />
-      <SectionTitle />
+      <Navbar contactInfo={contactInfo} />
+      <Hero contactInfo={contactInfo} />
       <Benefits />
       <Programmes />
-      <Register />
-      <JoinTeam />
-      <Footer />
+      <Register contactInfo={contactInfo} formLinks={formLinks} />
+      <JoinTeam
+        joinTeamContent={joinTeamContent}
+        formLinks={formLinks}
+      />
+      <Footer contactInfo={contactInfo} />
     </>
   );
 }

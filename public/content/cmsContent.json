@@ -1,0 +1,31 @@
+{
+  "contactInfo": {
+    "address": "NO 93-2 JALAN BINA 1, BANDAR SERI ALAM, MASAI, 81750, JOHOR",
+    "phone": "012 - 345 6789",
+    "email": "test@example.com",
+    "whatsappUrl": "https://wa.me/60123456789",
+    "datangUrl": "https://datang.my",
+    "googleMapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.4413891129066!2d103.86993067310021!3d1.5053229610602785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da6bf0727d7073%3A0xe4702d1829fbfe37!2sPusat%20Tuisyen%20Permata%20Hikmah%20PTPH!5e0!3m2!1sen!2smy!4v1783394165395!5m2!1sen!2smy"
+  },
+  "formLinks": {
+    "studentRegistration": "https://docs.google.com/forms/d/e/1FAIpQLSdwRqNXkJTiXVDTxzgY0oG93gWtO_Q2XyiBQzkKkL4sa_4eKg/viewform?usp=dialog",
+    "careerApplication": "https://docs.google.com/forms/d/e/1FAIpQLSe2bu3FXqCHh-raBZm6SvYsLFhLsQNE-DBRzkgrw69hPNxgQg/viewform?usp=dialog"
+  },
+
+  "joinTeamContent": {
+    "label": "Kerjaya & Latihan Industri",
+    "title": "Sertai Pasukan PTPH",
+    "paragraphs": [
+      "PTPH turut membuka peluang kepada individu yang berminat untuk menyertai pasukan sebagai tenaga pengajar, staf sokongan, atau pelajar latihan industri.",
+      "Calon boleh mengisi borang permohonan secara online. Maklumat yang dihantar akan dikumpulkan dalam Google Sheets untuk memudahkan semakan oleh pihak pengurusan."
+    ],
+    "button": "Isi Borang Permohonan",
+    "opportunitiesTitle": "Peluang yang Sesuai",
+    "opportunities": [
+      "Latihan industri",
+      "Guru tuisyen",
+      "Staf pentadbiran",
+      "Tenaga sokongan program"
+    ]
+  }
+}

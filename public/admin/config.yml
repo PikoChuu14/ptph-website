@@ -1,0 +1,58 @@
+backend:
+  name: git-gateway
+  branch: version-1.6-cms-prototype
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "website_content"
+    label: "Website Content"
+    files:
+      - label: "Main Editable Content"
+        name: "main_content"
+        file: "public/content/cmsContent.json"
+        format: "json"
+        fields:
+          - label: "Contact Information"
+            name: "contactInfo"
+            widget: "object"
+            fields:
+              - { label: "Address", name: "address", widget: "string" }
+              - { label: "Phone", name: "phone", widget: "string" }
+              - { label: "Email", name: "email", widget: "string" }
+              - { label: "WhatsApp URL", name: "whatsappUrl", widget: "string" }
+              - { label: "Datang URL", name: "datangUrl", widget: "string" }
+              - { label: "Google Map Embed URL", name: "googleMapEmbedUrl", widget: "text" }
+
+          - label: "Form Links"
+            name: "formLinks"
+            widget: "object"
+            fields:
+              - { label: "Student Registration Form", name: "studentRegistration", widget: "string" }
+              - { label: "Career Application Form", name: "careerApplication", widget: "string" }
+
+          - label: "Timetable"
+            name: "timetable"
+            widget: "list"
+            fields:
+              - { label: "Day", name: "day", widget: "string" }
+              - { label: "Time", name: "time", widget: "string" }
+              - { label: "Class Name", name: "className", widget: "string" }
+
+          - label: "Join Team Section"
+            name: "joinTeamContent"
+            widget: "object"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - label: "Paragraphs"
+                name: "paragraphs"
+                widget: "list"
+                field: { label: "Paragraph", name: "paragraph", widget: "text" }
+              - { label: "Button Text", name: "button", widget: "string" }
+              - { label: "Opportunities Title", name: "opportunitiesTitle", widget: "string" }
+              - label: "Opportunities"
+                name: "opportunities"
+                widget: "list"
+                field: { label: "Opportunity", name: "opportunity", widget: "string" }
