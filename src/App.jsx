@@ -1,97 +1,27 @@
 import { useEffect, useState } from "react";
 
-const servicePosts = [
-  {
-    title: "Pengambilan 2026",
-    description: "Subjek sekolah rendah, small group, guru berpengalaman.",
-    image: "/fb-post/ambilan2026.png",
-  },
-  {
-    title: "Pakej Peperiksaan Darjah 4",
-    description: "Fokus BM, BI, Matematik dan Sains untuk persediaan peperiksaan.",
-    image: "/fb-post/darjah4.png",
-  },
-  {
-    title: "Kelas Khas Persiapan Darjah 1",
-    description: "Membaca BM, membaca BI dan Matematik untuk kanak-kanak 5/6 tahun.",
-    image: "/fb-post/darjah1.png",
-  },
-];
-
-const programmes = [
-  {
-    title: "Pendidikan Awal",
-    description:
-      "Sokongan pembelajaran untuk kanak-kanak pra-sekolah bagi membina asas membaca, menulis, mengira dan tabiat belajar yang baik.",
-    subjects: ["Tadika", "Belajar", "Mengaji dan Belajar"],
-  },
-  {
-    title: "Tuisyen Sekolah Rendah",
-    description:
-      "Bimbingan akademik untuk murid Tahun 1 hingga Tahun 4 berdasarkan subjek penting di sekolah.",
-    subjects: ["Tahun 1", "Tahun 2", "Tahun 3", "Tahun 4"],
-  },
-  {
-    title: "Subjek Akademik",
-    description:
-      "Bimbingan subjek teras untuk membantu murid meningkatkan kefahaman dan keyakinan dalam pembelajaran.",
-    subjects: [
-      "Bahasa Melayu",
-      "Bahasa Inggeris",
-      "Matematik",
-      "Sains",
-      "Sains / BI",
-      "Matematik & Sains",
-      "BM & English",
-    ],
-  },
-  {
-    title: "Kelas Islamik & Membaca",
-    description:
-      "Pendidikan asas Islam dan sokongan membaca untuk membantu kanak-kanak mengukuhkan asas pembelajaran.",
-    subjects: ["Fardu Ain", "Mengaji", "Jawi", "Mengaji dan Jawi"],
-  },
-];
-const benefits = [
-  {
-    title: "Sokongan Pembelajaran Awal",
-    description:
-      "PTPH membantu kanak-kanak dari peringkat pra-sekolah sehingga Tahun 4 membina asas pembelajaran yang kukuh.",
-    image: "/why-ptph/early-learning.jpg",
-  },
-  {
-    title: "Guru Berpengalaman",
-    description:
-      "Kelas dibimbing oleh guru berpengalaman yang juga mengajar di sekolah kerajaan.",
-    image: "/why-ptph/cikgu.jpg",
-  },
-  {
-    title: "Sokongan Pembelajaran Lengkap",
-    description:
-      "PTPH menawarkan subjek akademik, pendidikan Islam, membaca, mengaji dan Jawi.",
-    image: "/why-ptph/quran-recite.jpg",
-  },
-  {
-    title: "Pertanyaan Ibu Bapa Lebih Mudah",
-    description:
-      "Ibu bapa boleh melihat maklumat kelas dan terus menghubungi PTPH melalui WhatsApp.",
-    image: "/why-ptph/whatsapp.jpg",
-  },
-];
-
-const parentRegistrationFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSdwRqNXkJTiXVDTxzgY0oG93gWtO_Q2XyiBQzkKkL4sa_4eKg/viewform?usp=dialog";
-const careerApplicationFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSe2bu3FXqCHh-raBZm6SvYsLFhLsQNE-DBRzkgrw69hPNxgQg/viewform?usp=dialog";
-const whatsappUrl = "https://wa.me/60123456789";
+import {
+  siteInfo,
+  contactInfo,
+  formLinks,
+  heroContent,
+  servicePosts,
+  benefits,
+  programmes,
+  sectionContent,
+  registerContent,
+  joinTeamContent,
+} from "./data/siteContent";
 
 function Navbar() {
   return (
     <nav className="navbar">
       <div className="brand">
         <div className="brand-logo">
-          <img src="/icons/ptph-icon.jpeg" alt="PTPH Logo" />
+          <img src={siteInfo.logo} alt={`${siteInfo.shortName} Logo`} />
         </div>
 
-        <h2>Pusat Tuisyen Permata Hikmah</h2>
+        <h2>{siteInfo.name}</h2>
       </div>
 
       <div className="nav-links">
@@ -101,7 +31,7 @@ function Navbar() {
         <a href="#join-team">Sertai Kami</a>
 
         <a
-          href="https://datang.my"
+          href={contactInfo.datangUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="datang-link"
@@ -117,18 +47,21 @@ function Hero() {
   return (
     <section className="hero">
       <div className="hero-text">
+        <h1>{heroContent.title}</h1>
 
-        <h1>Pendidikan Awal & Bimbingan Tuisyen untuk Anak Anda</h1>
-
-        <p>
-          PTPH menyediakan pendidikan awal dan bimbingan tuisyen untuk kanak-kanak
-          dari peringkat pra-sekolah sehingga Tahun 4. Kelas dibimbing oleh guru
-          berpengalaman yang juga mengajar di sekolah kerajaan.
-        </p>
+        <p>{heroContent.description}</p>
 
         <div className="hero-buttons">
           <a href="#register" className="primary-btn">
-            Daftar Minat
+            {heroContent.primaryButton}
+          </a>
+          <a
+            href={contactInfo.whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="secondary-btn"
+          >
+            {heroContent.secondaryButton}
           </a>
         </div>
       </div>
@@ -152,9 +85,9 @@ function Benefits() {
   return (
     <section className="section" id="why-ptph">
       <SectionTitle
-        label="Kenapa PTPH?"
-        title="Mengapa Ibu Bapa Memilih PTPH?"
-        description="PTPH menekankan pada pembelajaran awal, pengajaran berpengalaman, dan sokongan menyeluruh untuk pelajar muda."
+        label={sectionContent.whyPtph.label}
+        title={sectionContent.whyPtph.title}
+        description={sectionContent.whyPtph.description}
       />
 
       <div className="benefit-grid">
@@ -180,9 +113,9 @@ function Programmes() {
   return (
     <section className="section light-section" id="programmes">
       <SectionTitle
-        label="Program"
-        title="Mata Pelajaran dan Kelas yang Ditawarkan"
-        description="PTPH menawarkan pendidikan awal, bimbingan akademik, dan sokongan pembelajaran Islam asas untuk pelajar muda."
+        label={sectionContent.programmes.label}
+        title={sectionContent.programmes.title}
+        description={sectionContent.programmes.description}
       />
 
       <div className="card-grid programme-grid">
@@ -207,35 +140,33 @@ function Register() {
   return (
     <section className="section register-section" id="register">
       <div className="register-content">
-        <p className="badge">Pendaftaran Murid</p>
+        <p className="badge">{registerContent.label}</p>
 
-        <h2>Berminat untuk Daftar Anak Anda?</h2>
+        <h2>{registerContent.title}</h2>
 
-        <p>
-          Ibu bapa boleh mengisi borang pendaftaran minat secara online. Pihak
-          PTPH akan menyemak maklumat dan menghubungi ibu bapa untuk tindakan
-          seterusnya.
-        </p>
+        <p>{registerContent.description}</p>
 
         <div className="cta-buttons">
           <a
-            href={parentRegistrationFormUrl}
+            href={formLinks.studentRegistration}
             target="_blank"
             rel="noopener noreferrer"
             className="primary-btn register-whatsapp-btn"
           >
-            Isi Borang Pendaftaran
+            {registerContent.formButton}
           </a>
 
           <a
-            href={whatsappUrl}
+            href={contactInfo.whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="secondary-btn"
           >
-            Hubungi WhatsApp
+            {registerContent.whatsappButton}
           </a>
         </div>
+
+        <p className="form-note">{registerContent.note}</p>
       </div>
     </section>
   );
@@ -246,40 +177,31 @@ function JoinTeam() {
     <section className="section join-team-section" id="join-team">
       <div className="join-team-content">
         <div>
-          <p className="badge">Kerjaya & Latihan Industri</p>
+          <p className="badge">{joinTeamContent.label}</p>
 
-          <h2>Sertai Pasukan PTPH</h2>
+          <h2>{joinTeamContent.title}</h2>
 
-          <p>
-            PTPH turut membuka peluang kepada individu yang berminat untuk
-            menyertai pasukan sebagai tenaga pengajar, staf sokongan, atau
-            pelajar latihan industri.
-          </p>
-
-          <p>
-            Calon boleh mengisi borang permohonan secara online. Maklumat yang
-            dihantar akan dikumpulkan dalam Google Sheets untuk memudahkan
-            semakan oleh pihak pengurusan.
-          </p>
+          {joinTeamContent.paragraphs.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
 
           <a
-            href={careerApplicationFormUrl}
+            href={formLinks.careerApplication}
             target="_blank"
             rel="noopener noreferrer"
             className="primary-btn"
           >
-            Isi Borang Permohonan
+            {joinTeamContent.button}
           </a>
         </div>
 
         <div className="join-team-card">
-          <h3>Peluang yang Sesuai</h3>
+          <h3>{joinTeamContent.opportunitiesTitle}</h3>
 
           <ul>
-            <li>Latihan industri</li>
-            <li>Guru tuisyen</li>
-            <li>Staf pentadbiran</li>
-            <li>Tenaga sokongan program</li>
+            {joinTeamContent.opportunities.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
           </ul>
         </div>
       </div>
@@ -469,29 +391,28 @@ function Footer() {
     <footer className="site-footer">
       <div className="footer-content">
         <div className="footer-info-block">
-          <h3>Pusat Tuisyen Permata Hikmah</h3>
+          <h3>{siteInfo.name}</h3>
 
           <div className="footer-info">
             <p>
-              <strong>Address:</strong> NO 93-2 JALAN BINA 1, BANDAR SERI ALAM,
-              MASAI, 81750, JOHOR
+              <strong>Alamat:</strong> {contactInfo.address}
             </p>
             <p>
-              <strong>Tel:</strong> 012 - 345 6789
+              <strong>Tel:</strong> {contactInfo.phone}
             </p>
             <p>
-              <strong>Email:</strong> permatahikmah@example.com
+              <strong>Emel:</strong> {contactInfo.email}
             </p>
           </div>
         </div>
 
         <div className="footer-map-block">
-          <h4>Cari Kami</h4>
+          <h4>Lokasi Kami</h4>
 
           <div className="footer-map">
             <iframe
-              title="Pusat Tuisyen Permata Hikmah Location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.441389112916!2d103.86993067310021!3d1.5053229610602785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da6bf0727d7073%3A0xe4702d1829fbfe37!2sPusat%20Tuisyen%20Permata%20Hikmah%20PTPH!5e0!3m2!1sen!2smy!4v1782828384861!5m2!1sen!2smy"
+              title={`Lokasi ${siteInfo.name}`}
+              src={contactInfo.googleMapEmbedUrl}
               loading="lazy"
               allowFullScreen
               referrerPolicy="no-referrer-when-downgrade"
@@ -508,6 +429,7 @@ function App() {
     <>
       <Navbar />
       <Hero />
+      <SectionTitle />
       <Benefits />
       <Programmes />
       <Register />
