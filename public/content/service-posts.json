@@ -1,0 +1,27 @@
+{
+  "label": "Perkhidmatan Semasa",
+  "title": "Promosi & Program",
+  "hint": "Klik poster untuk lihat dengan lebih jelas",
+  "posts": [
+    {
+      "title": "Pengambilan 2026",
+      "description": "Subjek sekolah rendah, kumpulan kecil dan guru berpengalaman.",
+      "image": "/fb-post/ambilan2026.png"
+    },
+    {
+      "title": "Pakej Peperiksaan Darjah 4",
+      "description": "Fokus BM, BI, Matematik dan Sains untuk persediaan peperiksaan.",
+      "image": "/fb-post/darjah4.png"
+    },
+    {
+      "title": "Kelas Khas Persiapan Darjah 1",
+      "description": "Membaca BM, membaca BI dan Matematik untuk kanak-kanak 5/6 tahun.",
+      "image": "/fb-post/darjah1.png"
+    },
+    {
+      "title": "Program Latihan Industri",
+      "description": "Peluang latihan industri bersama Permata Hikmah Education Group.",
+      "image": "/fb-post/latihan-industri.png"
+    }
+  ]
+}

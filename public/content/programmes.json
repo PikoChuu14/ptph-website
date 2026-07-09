@@ -1,0 +1,35 @@
+{
+  "label": "Program",
+  "title": "Subjek dan Kelas Ditawarkan",
+  "description": "PTPH menawarkan pendidikan awal, tuisyen akademik dan sokongan pembelajaran asas Islam untuk murid muda.",
+  "items": [
+    {
+      "title": "Pendidikan Awal",
+      "description": "Sokongan pembelajaran untuk kanak-kanak pra-sekolah bagi membina asas membaca, menulis, mengira dan tabiat belajar yang baik.",
+      "subjects": ["Tadika", "Belajar", "Mengaji dan Belajar"]
+    },
+    {
+      "title": "Tuisyen Sekolah Rendah",
+      "description": "Bimbingan akademik untuk murid Tahun 1 hingga Tahun 4 berdasarkan subjek penting di sekolah.",
+      "subjects": ["Tahun 1", "Tahun 2", "Tahun 3", "Tahun 4"]
+    },
+    {
+      "title": "Subjek Akademik",
+      "description": "Bimbingan subjek teras untuk membantu murid meningkatkan kefahaman dan keyakinan dalam pembelajaran.",
+      "subjects": [
+        "Bahasa Melayu",
+        "Bahasa Inggeris",
+        "Matematik",
+        "Sains",
+        "Sains / BI",
+        "Matematik & Sains",
+        "BM & English"
+      ]
+    },
+    {
+      "title": "Kelas Islamik & Membaca",
+      "description": "Pendidikan asas Islam dan sokongan membaca untuk membantu kanak-kanak mengukuhkan asas pembelajaran.",
+      "subjects": ["Fardu Ain", "Mengaji", "Jawi", "Mengaji dan Jawi"]
+    }
+  ]
+}
