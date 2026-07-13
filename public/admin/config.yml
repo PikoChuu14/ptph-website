@@ -2,6 +2,8 @@ backend:
   name: git-gateway
   branch: version-1.10-expanded-cms
 
+publish_mode: editorial_workflow
+
 media_folder: "public/uploads"
 public_folder: "/uploads"
 
