@@ -47,12 +47,11 @@ a {
 }
 
 .hero {
-  min-height: 85vh;
-  padding: 80px 8%;
+  min-height: calc(100vh - 90px);
+  padding: 70px 8% 90px;
   display: grid;
-  grid-template-columns: 1.4fr 0.8fr;
-  gap: 40px;
-  align-items: center;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 60px;
   background: linear-gradient(135deg, #eff6ff, #ffffff);
 }
 
