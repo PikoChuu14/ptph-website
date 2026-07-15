@@ -152,7 +152,7 @@ function Register({ registerContent, contactInfo, formLinks }) {
             href={formLinks.studentRegistration}
             target="_blank"
             rel="noopener noreferrer"
-            className="primary-btn register-whatsapp-btn"
+            className="primary-btn"
           >
             {registerContent.formButton}
           </a>
