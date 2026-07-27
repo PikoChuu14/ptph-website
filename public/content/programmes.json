@@ -1,35 +1,145 @@
 {
   "label": "Program",
-  "title": "Subjek dan Kelas Ditawarkan",
-  "description": "PTPH menawarkan pendidikan awal, tuisyen akademik dan sokongan pembelajaran asas Islam untuk murid muda.",
+  "title": "Program yang Ditawarkan",
+  "description": "PTPH menyediakan pelbagai program pembelajaran untuk kanak-kanak tadika, sekolah rendah dan sekolah menengah.",
   "items": [
     {
-      "title": "Pendidikan Awal",
-      "description": "Sokongan pembelajaran untuk kanak-kanak pra-sekolah bagi membina asas membaca, menulis, mengira dan tabiat belajar yang baik.",
-      "subjects": ["Tadika", "Belajar", "Mengaji dan Belajar"]
+      "title": "Program Membaca",
+      "target": "Tadika hingga sekolah rendah",
+      "focus": "Membantu murid menguasai asas membaca melalui latihan umum dan bimbingan berstruktur.",
+      "schedules": [
+        {
+          "day": "Rabu / Khamis",
+          "time": "8.00 malam - 10.00 malam"
+        },
+        {
+          "day": "Sabtu",
+          "time": "12.00 tengah hari - 2.00 petang"
+        },
+        {
+          "day": "Ahad",
+          "time": "10.00 pagi - 12.00 tengah hari"
+        }
+      ],
+      "fee": "RM140 sebulan",
+      "registrationFee": "RM60 yuran bahan sekali sahaja",
+      "subjects": ["Membaca", "Latihan umum", "Asas pembelajaran"],
+      "note": ""
     },
     {
-      "title": "Tuisyen Sekolah Rendah",
-      "description": "Bimbingan akademik untuk murid Tahun 1 hingga Tahun 4 berdasarkan subjek penting di sekolah.",
-      "subjects": ["Tahun 1", "Tahun 2", "Tahun 3", "Tahun 4"]
+      "title": "Rendah Akademik Tahap 1",
+      "target": "Darjah 1 hingga Darjah 3",
+      "focus": "Latihan berkumpulan, soalan peperiksaan dan pengukuhan asas 3M.",
+      "schedules": [
+        {
+          "day": "Rabu / Khamis",
+          "time": "8.00 malam - 11.00 malam"
+        },
+        {
+          "day": "Sabtu",
+          "time": "12.00 tengah hari - 3.00 petang"
+        },
+        {
+          "day": "Ahad",
+          "time": "10.00 pagi - 1.00 petang"
+        }
+      ],
+      "fee": "RM140 sebulan",
+      "registrationFee": "RM60 yuran bahan sekali sahaja",
+      "subjects": ["Bahasa Melayu", "Bahasa Inggeris", "Matematik", "Sains"],
+      "note": "Daftar satu subjek: RM70"
     },
     {
-      "title": "Subjek Akademik",
-      "description": "Bimbingan subjek teras untuk membantu murid meningkatkan kefahaman dan keyakinan dalam pembelajaran.",
-      "subjects": [
-        "Bahasa Melayu",
-        "Bahasa Inggeris",
-        "Matematik",
-        "Sains",
-        "Sains / BI",
-        "Matematik & Sains",
-        "BM & English"
-      ]
+      "title": "Rendah Akademik Tahap 2",
+      "target": "Darjah 4 hingga Darjah 6",
+      "focus": "Latihan berkumpulan, soalan peperiksaan dan pengukuhan asas akademik sekolah rendah.",
+      "schedules": [
+        {
+          "day": "Sabtu",
+          "time": "12.00 tengah hari - 3.00 petang"
+        },
+        {
+          "day": "Ahad",
+          "time": "10.00 pagi - 1.00 petang"
+        }
+      ],
+      "fee": "RM160 sebulan",
+      "registrationFee": "RM60 yuran bahan sekali sahaja",
+      "subjects": ["Bahasa Melayu", "Bahasa Inggeris", "Matematik", "Sains"],
+      "note": "Daftar satu subjek: RM70"
     },
     {
-      "title": "Kelas Islamik & Membaca",
-      "description": "Pendidikan asas Islam dan sokongan membaca untuk membantu kanak-kanak mengukuhkan asas pembelajaran.",
-      "subjects": ["Fardu Ain", "Mengaji", "Jawi", "Mengaji dan Jawi"]
+      "title": "Kelas Fardu Ain",
+      "target": "Tadika hingga sekolah rendah",
+      "focus": "Pendidikan asas Islam melalui latihan amali, latihan bertulis, mengaji dan Jawi.",
+      "schedules": [
+        {
+          "day": "Isnin / Selasa",
+          "time": "3.00 petang - 5.00 petang"
+        },
+        {
+          "day": "Rabu / Khamis",
+          "time": "3.00 petang - 5.00 petang"
+        },
+        {
+          "day": "Sabtu",
+          "time": "12.00 tengah hari - 2.00 petang"
+        },
+        {
+          "day": "Ahad",
+          "time": "10.00 pagi - 12.00 tengah hari"
+        }
+      ],
+      "fee": "RM140 sebulan",
+      "registrationFee": "RM60 yuran bahan sekali sahaja",
+      "subjects": ["Fardu Ain", "Mengaji", "Jawi", "Latihan amali"],
+      "note": "Fokus pembelajaran: 70% amali dan 30% bertulis"
+    },
+    {
+      "title": "Kelas Akademik Menengah Rendah",
+      "target": "Tingkatan 1 hingga Tingkatan 3",
+      "focus": "Latihan peperiksaan untuk membantu pelajar mengukuhkan kefahaman subjek teras.",
+      "schedules": [
+        {
+          "day": "Rabu / Khamis",
+          "time": "8.00 malam - 11.00 malam"
+        },
+        {
+          "day": "Sabtu",
+          "time": "12.00 tengah hari - 3.00 petang"
+        },
+        {
+          "day": "Ahad",
+          "time": "10.00 pagi - 1.00 petang"
+        }
+      ],
+      "fee": "RM70 satu subjek sebulan",
+      "registrationFee": "RM60 yuran pendaftaran",
+      "subjects": ["Bahasa Melayu", "Bahasa Inggeris", "Matematik", "Sains", "Sejarah"],
+      "note": "Minimum daftar 2 subjek"
+    },
+    {
+      "title": "Kelas Akademik Menengah Atas",
+      "target": "Tingkatan 4 hingga Tingkatan 6",
+      "focus": "Latihan peperiksaan untuk subjek teras dan subjek elektif peringkat menengah atas.",
+      "schedules": [
+        {
+          "day": "Rabu / Khamis",
+          "time": "8.00 malam - 11.00 malam"
+        },
+        {
+          "day": "Sabtu",
+          "time": "12.00 tengah hari - 3.00 petang"
+        },
+        {
+          "day": "Ahad",
+          "time": "10.00 pagi - 1.00 petang"
+        }
+      ],
+      "fee": "RM70 satu subjek sebulan",
+      "registrationFee": "RM60 yuran pendaftaran",
+      "subjects": ["BM", "BI", "Matematik", "Sains", "Sejarah", "Matematik Tambahan", "Fizik", "Perakaunan"],
+      "note": "Minimum daftar 2 subjek"
     }
   ]
 }

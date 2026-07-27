@@ -99,11 +99,21 @@ collections:
             widget: "list"
             fields:
               - { label: "Programme Title", name: "title", widget: "string" }
-              - { label: "Programme Description", name: "description", widget: "text" }
+              - { label: "Target", name: "target", widget: "string" }
+              - { label: "Learning Focus", name: "focus", widget: "text" }
+              - label: "Schedules"
+                name: "schedules"
+                widget: "list"
+                fields:
+                  - { label: "Day", name: "day", widget: "string" }
+                  - { label: "Time", name: "time", widget: "string" }
+              - { label: "Monthly Fee", name: "fee", widget: "string" }
+              - { label: "Registration Fee", name: "registrationFee", widget: "string" }
               - label: "Subjects"
                 name: "subjects"
                 widget: "list"
                 field: { label: "Subject", name: "subject", widget: "string" }
+              - { label: "Note", name: "note", widget: "text", required: false }
 
       - label: "Registration Section"
         name: "registration"

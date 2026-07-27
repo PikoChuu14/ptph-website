@@ -110,27 +110,120 @@ function Benefits({benefitsContent}) {
   );
 }
 
-function Programmes({programmesContent}) {
+function Programmes({ programmesContent }) {
+  const programmes = programmesContent?.items || [];
+  const [currentProgramme, setCurrentProgramme] = useState(0);
+
+  const goToNextProgramme = () => {
+    if (programmes.length === 0) return;
+
+    setCurrentProgramme((prevIndex) =>
+      prevIndex === programmes.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const goToPreviousProgramme = () => {
+    if (programmes.length === 0) return;
+
+    setCurrentProgramme((prevIndex) =>
+      prevIndex === 0 ? programmes.length - 1 : prevIndex - 1
+    );
+  };
+
+  if (programmes.length === 0) {
+    return null;
+  }
+
+  const programme = programmes[currentProgramme];
+
   return (
-    <section className="section light-section" id="programmes">
-      <SectionTitle
-        label={programmesContent.label}
-        title={programmesContent.title}
-        description={programmesContent.description}
-      />
+    <section className="section programmes-section" id="programmes">
+      <div className="section-title">
+        <p>{programmesContent.label}</p>
+        <h2>{programmesContent.title}</h2>
+        <span>{programmesContent.description}</span>
+      </div>
 
-      <div className="card-grid programme-grid">
-        {programmesContent.items.map((programme) => (
-          <div className="info-card" key={programme.title}>
+      <div className="programme-carousel">
+        <button
+          className="programme-arrow programme-prev"
+          onClick={goToPreviousProgramme}
+          aria-label="Program sebelumnya"
+        >
+          ‹
+        </button>
+
+        <div className="programme-feature-card">
+          <div className="programme-card-header">
+            <p className="programme-count">
+              Program {currentProgramme + 1} / {programmes.length}
+            </p>
+
             <h3>{programme.title}</h3>
-            <p>{programme.description}</p>
 
-            <div className="subject-list">
-              {programme.subjects.map((subject) => (
-                <span key={subject}>{subject}</span>
-              ))}
+            <span className="programme-target">{programme.target}</span>
+          </div>
+
+          <div className="programme-info-grid">
+            <div>
+              <h4>Fokus Pembelajaran</h4>
+              <p>{programme.focus}</p>
+            </div>
+
+            <div>
+              <h4>Masa Kelas</h4>
+
+              <div className="schedule-list">
+                {(programme.schedules || []).map((schedule, index) => (
+                  <div className="schedule-row" key={`${schedule.day}-${index}`}>
+                    <span className="schedule-day">{schedule.day}</span>
+                    <span className="schedule-time">{schedule.time}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <h4>Yuran</h4>
+              <p>{programme.fee}</p>
+            </div>
+
+            <div>
+              <h4>Yuran Pendaftaran</h4>
+              <p>{programme.registrationFee}</p>
             </div>
           </div>
+
+          <div className="programme-subjects">
+            {(programme.subjects || []).map((subject) => (
+              <span key={subject}>{subject}</span>
+            ))}
+          </div>
+
+          {programme.note && <p className="programme-note">{programme.note}</p>}
+        </div>
+
+        <button
+          className="programme-arrow programme-next"
+          onClick={goToNextProgramme}
+          aria-label="Program seterusnya"
+        >
+          ›
+        </button>
+      </div>
+
+      <div className="programme-dots">
+        {programmes.map((item, index) => (
+          <button
+            key={item.title}
+            className={
+              currentProgramme === index
+                ? "programme-dot active-programme-dot"
+                : "programme-dot"
+            }
+            onClick={() => setCurrentProgramme(index)}
+            aria-label={`Lihat ${item.title}`}
+          ></button>
         ))}
       </div>
     </section>
