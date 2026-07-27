@@ -22,7 +22,7 @@ export const formLinks = {
 export const heroContent = {
   title: "Pendidikan Awal & Bimbingan Tuisyen untuk Anak Anda",
   description:
-    "PTPH menyediakan pendidikan awal dan bimbingan tuisyen untuk kanak-kanak dari peringkat pra-sekolah sehingga Tahun 4. Kelas dibimbing oleh guru berpengalaman yang juga mengajar di sekolah kerajaan.",
+    "Permata Hikmah menyediakan pendidikan awal dan bimbingan tuisyen untuk kanak-kanak dari peringkat pra-sekolah sehingga menengah. Kelas dibimbing oleh guru berpengalaman yang juga mengajar di sekolah kerajaan.",
   primaryButton: "Daftar Minat",
   secondaryButton: "Hubungi WhatsApp",
 };
@@ -57,7 +57,7 @@ export const benefits = [
   {
     title: "Sokongan Pembelajaran Awal",
     description:
-      "PTPH membantu kanak-kanak dari peringkat pra-sekolah sehingga Tahun 4 membina asas pembelajaran yang kukuh.",
+      "PTPH membantu kanak-kanak dari peringkat pra-sekolah sehingga menengah membina asas pembelajaran yang kukuh.",
     image: "/why-ptph/early-learning.jpg",
   },
   {

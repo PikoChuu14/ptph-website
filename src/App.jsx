@@ -25,7 +25,7 @@ function Navbar({siteInfo, contactInfo}) {
       </div>
 
       <div className="nav-links">
-        <a href="#why-ptph">Kenapa PTPH?</a>
+        <a href="#why-ptph">Kenapa Kami?</a>
         <a href="#programmes">Program</a>
         <a href="#register">Daftar</a>
         <a href="#join-team">Sertai Kami</a>

@@ -1,11 +1,11 @@
 {
-  "label": "Kenapa PTPH?",
-  "title": "Kenapa Ibu Bapa Memilih PTPH",
-  "description": "PTPH memberi fokus kepada pembelajaran awal, bimbingan guru berpengalaman dan sokongan lengkap untuk pelajar muda.",
+  "label": "Kenapa Kami?",
+  "title": "Kenapa Ibu Bapa Memilih Permata Hikmah",
+  "description": "Permata Hikmah memberi fokus kepada pembelajaran awal, bimbingan guru berpengalaman dan sokongan lengkap untuk pelajar muda.",
   "items": [
     {
       "title": "Sokongan Pembelajaran Awal",
-      "description": "PTPH membantu kanak-kanak dari peringkat pra-sekolah sehingga Tahun 4 membina asas pembelajaran yang kukuh.",
+      "description": "Permata Hikmah membantu kanak-kanak dari peringkat pra-sekolah sehingga menengah membina asas pembelajaran yang kukuh.",
       "image": "/why-ptph/early-learning.jpg"
     },
     {
@@ -15,12 +15,12 @@
     },
     {
       "title": "Sokongan Pembelajaran Lengkap",
-      "description": "PTPH menawarkan subjek akademik, pendidikan Islam, membaca, mengaji dan Jawi.",
+      "description": "Permata Hikmah menawarkan subjek akademik, pendidikan Islam, membaca, mengaji dan Jawi.",
       "image": "/why-ptph/quran-recite.jpg"
     },
     {
       "title": "Pertanyaan Ibu Bapa Lebih Mudah",
-      "description": "Ibu bapa boleh melihat maklumat kelas dan terus menghubungi PTPH melalui WhatsApp.",
+      "description": "Ibu bapa boleh melihat maklumat kelas dan terus menghubungi Permata Hikmah melalui WhatsApp.",
       "image": "/why-ptph/whatsapp.jpg"
     }
   ]

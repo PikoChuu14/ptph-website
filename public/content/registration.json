@@ -1,8 +1,8 @@
 {
   "label": "Pendaftaran Murid",
   "title": "Berminat untuk Daftar Anak Anda?",
-  "description": "Ibu bapa boleh mengisi borang pendaftaran minat secara online. Pihak PTPH akan menyemak maklumat dan menghubungi ibu bapa untuk tindakan seterusnya.",
+  "description": "Ibu bapa boleh mengisi borang pendaftaran minat secara online. Pihak Permata Hikmah akan menyemak maklumat dan menghubungi ibu bapa untuk tindakan seterusnya.",
   "formButton": "Isi Borang Pendaftaran",
   "whatsappButton": "Hubungi WhatsApp",
-  "note": "Maklumat yang dihantar akan disemak oleh pihak PTPH melalui Google Sheets."
+  "note": "Maklumat yang dihantar akan disemak oleh pihak Permata Hikmah melalui Google Sheets."
 }
