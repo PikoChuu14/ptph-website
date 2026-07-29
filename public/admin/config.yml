@@ -115,6 +115,19 @@ collections:
                 field: { label: "Subject", name: "subject", widget: "string" }
               - { label: "Note", name: "note", widget: "text", required: false }
 
+      - label: "Gallery"
+        name: "gallery"
+        file: "public/content/gallery.json"
+        format: "json"
+        fields:
+          - { label: "Small Label", name: "label", widget: "string" }
+          - { label: "Section Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - label: "Gallery Images"
+            name: "images"
+            widget: "list"
+            field: { label: "Image", name: "image", widget: "image" }
+
       - label: "Registration Section"
         name: "registration"
         file: "public/content/registration.json"

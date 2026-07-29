@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 
 import {
-  siteInfo,
-  contactInfo,
-  formLinks,
-  heroContent,
-  servicePosts,
-  benefits,
-  programmes,
-  sectionContent,
-  registerContent,
-  joinTeamContent,
+  siteInfo as defaultSiteInfo,
+  contactInfo as defaultContactInfo,
+  formLinks as defaultFormLinks,
+  heroContent as defaultHeroContent,
+  servicePosts as defaultServicePosts,
+  benefits as defaultBenefits,
+  programmes as defaultProgrammes,
+  sectionContent as defaultSectionContent,
+  registerContent as defaultRegisterContent,
+  joinTeamContent as defaultJoinTeamContent,
 } from "./data/siteContent";
 
 function Navbar({siteInfo, contactInfo}) {
@@ -29,15 +29,7 @@ function Navbar({siteInfo, contactInfo}) {
         <a href="#programmes">Program</a>
         <a href="#register">Daftar</a>
         <a href="#join-team">Sertai Kami</a>
-
-        <a
-          href={contactInfo.datangUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="datang-link"
-        >
-          Datang.my
-        </a>
+        <a href="#gallery"> Galeri</a>
       </div>
     </nav>
   );
@@ -225,6 +217,36 @@ function Programmes({ programmesContent }) {
             aria-label={`Lihat ${item.title}`}
           ></button>
         ))}
+      </div>
+    </section>
+  );
+}
+
+function Gallery({ galleryContent }) {
+  const images = galleryContent?.images || [];
+
+  if (images.length === 0) {
+    return null;
+  }
+
+  const loopingImages = [...images, ...images];
+
+  return (
+    <section className="section gallery-section" id="gallery">
+      <div className="section-title">
+        <p>{galleryContent.label}</p>
+        <h2>{galleryContent.title}</h2>
+        <span>{galleryContent.description}</span>
+      </div>
+
+      <div className="gallery-marquee">
+        <div className="gallery-track">
+          {loopingImages.map((image, index) => (
+            <div className="gallery-item" key={`${image}-${index}`}>
+              <img src={image} alt={`Galeri PTPH ${index + 1}`} />
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -562,68 +584,85 @@ async function fetchJson(path, fallback) {
   }
 }
 
+const defaultGalleryContent = {
+  label: "Galeri",
+  title: "Galeri PTPH",
+  description:
+    "Lihat suasana kelas, aktiviti pembelajaran dan persekitaran di Pusat Tuisyen Permata Hikmah.",
+  images: [],
+};
+
 function App() {
   const [content, setContent] = useState({
-    siteInfo: siteInfo,
-    contactInfo: contactInfo,
-    formLinks: formLinks,
-    heroContent: heroContent,
+    siteInfo: defaultSiteInfo,
+    contactInfo: defaultContactInfo,
+    formLinks: defaultFormLinks,
+    heroContent: defaultHeroContent,
     servicePosts: {
       label: "Perkhidmatan Semasa",
       title: "Promosi & Program",
       hint: "Klik poster untuk lihat dengan lebih jelas",
-      posts: servicePosts,
+      posts: defaultServicePosts,
     },
     benefits: {
-      ...sectionContent.whyPtph,
-      items: benefits,
+      ...defaultSectionContent.whyPtph,
+      items: defaultBenefits,
     },
     programmes: {
-      ...sectionContent.programmes,
-      items: programmes,
+      ...defaultSectionContent.programmes,
+      items: defaultProgrammes,
     },
-    registration: registerContent,
-    joinTeam: joinTeamContent,
+    gallery: defaultGalleryContent,
+    registration: defaultRegisterContent,
+    joinTeam: defaultJoinTeamContent,
   });
 
   useEffect(() => {
     async function loadContent() {
       const [
-        siteInfoData,
-        formsData,
-        heroData,
-        servicePostsData,
-        whyPtphData,
-        programmesData,
-        registrationData,
-        joinTeamData,
-        footerData,
-      ] = await Promise.all([
-        fetchJson("/content/site-info.json", siteInfo),
-        fetchJson("/content/forms.json", {
-          studentRegistration: formLinks.studentRegistration,
-          careerApplication: formLinks.careerApplication,
-          whatsappUrl: contactInfo.whatsappUrl,
-        }),
-        fetchJson("/content/hero.json", heroContent),
-        fetchJson("/content/service-posts.json", {
-          label: "Perkhidmatan Semasa",
-          title: "Promosi & Program",
-          hint: "Klik poster untuk lihat dengan lebih jelas",
-          posts: servicePosts,
-        }),
-        fetchJson("/content/why-ptph.json", {
-          ...sectionContent.whyPtph,
-          items: benefits,
-        }),
-        fetchJson("/content/programmes.json", {
-          ...sectionContent.programmes,
-          items: programmes,
-        }),
-        fetchJson("/content/registration.json", registerContent),
-        fetchJson("/content/join-team.json", joinTeamContent),
-        fetchJson("/content/footer.json", contactInfo),
-      ]);
+          siteInfoData,
+          formsData,
+          heroData,
+          servicePostsData,
+          whyPtphData,
+          programmesData,
+          galleryData,
+          registrationData,
+          joinTeamData,
+          footerData,
+        ] = await Promise.all([
+          fetchJson("/content/site-info.json", defaultSiteInfo),
+          fetchJson("/content/forms.json", {
+            studentRegistration: defaultFormLinks.studentRegistration,
+            careerApplication: defaultFormLinks.careerApplication,
+            whatsappUrl: defaultContactInfo.whatsappUrl,
+          }),
+          fetchJson("/content/hero.json", defaultHeroContent),
+          fetchJson("/content/service-posts.json", {
+            label: "Perkhidmatan Semasa",
+            title: "Promosi & Program",
+            hint: "Klik poster untuk lihat dengan lebih jelas",
+            posts: defaultServicePosts,
+          }),
+          fetchJson("/content/why-ptph.json", {
+            ...defaultSectionContent.whyPtph,
+            items: defaultBenefits,
+          }),
+          fetchJson("/content/programmes.json", {
+            ...defaultSectionContent.programmes,
+            items: defaultProgrammes,
+          }),
+          fetchJson("/content/gallery.json", {
+            label: "Galeri",
+            title: "Suasana Pembelajaran di PTPH",
+            description:
+              "Lihat suasana kelas, aktiviti pembelajaran dan persekitaran di Pusat Tuisyen Permata Hikmah.",
+            images: [],
+          }),
+          fetchJson("/content/registration.json", defaultRegisterContent),
+          fetchJson("/content/join-team.json", defaultJoinTeamContent),
+          fetchJson("/content/footer.json", defaultContactInfo),
+        ]);
 
       setContent({
         siteInfo: siteInfoData,
@@ -632,6 +671,7 @@ function App() {
         servicePosts: servicePostsData,
         benefits: whyPtphData,
         programmes: programmesData,
+        gallery: galleryData,
         registration: registrationData,
         joinTeam: joinTeamData,
         contactInfo: {
@@ -658,6 +698,8 @@ function App() {
       <Benefits benefitsContent={content.benefits} />
 
       <Programmes programmesContent={content.programmes} />
+
+      <Gallery galleryContent={content.gallery} />
 
       <Register
         registerContent={content.registration}
