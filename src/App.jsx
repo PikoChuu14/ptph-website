@@ -38,7 +38,7 @@ function Navbar({siteInfo, contactInfo}) {
 function Hero({ heroContent, contactInfo, servicePostsContent }) {
   return (
     <section className="hero">
-      <div className="hero-text">
+      <div className="hero-text reveal reveal-left">
         <h1>{heroContent.title}</h1>
 
         <p>{heroContent.description}</p>
@@ -66,7 +66,7 @@ function Hero({ heroContent, contactInfo, servicePostsContent }) {
 
 function SectionTitle({ label, title, description }) {
   return (
-    <div className="section-title">
+    <div className="section-title reveal">
       <p>{label}</p>
       <h2>{title}</h2>
       <span>{description}</span>
@@ -129,7 +129,7 @@ function Programmes({ programmesContent }) {
   const programme = programmes[currentProgramme];
 
   return (
-    <section className="section programmes-section" id="programmes">
+    <section className="section programmes-section reveal" id="programmes">
       <div className="section-title">
         <p>{programmesContent.label}</p>
         <h2>{programmesContent.title}</h2>
@@ -145,7 +145,7 @@ function Programmes({ programmesContent }) {
           ‹
         </button>
 
-        <div className="programme-feature-card">
+        <div className="programme-feature-card reveal">
           <div className="programme-card-header">
             <p className="programme-count">
               Program {currentProgramme + 1} / {programmes.length}
@@ -232,7 +232,7 @@ function Gallery({ galleryContent }) {
   const loopingImages = [...images, ...images];
 
   return (
-    <section className="section gallery-section" id="gallery">
+    <section className="section gallery-section reveal" id="gallery">
       <div className="section-title">
         <p>{galleryContent.label}</p>
         <h2>{galleryContent.title}</h2>
@@ -254,7 +254,7 @@ function Gallery({ galleryContent }) {
 
 function Register({ registerContent, contactInfo, formLinks }) {
   return (
-    <section className="section register-section" id="register">
+    <section className="section register-section reveal" id="register">
       <div className="register-content">
         <p className="badge">{registerContent.label}</p>
 
@@ -290,7 +290,7 @@ function Register({ registerContent, contactInfo, formLinks }) {
 
 function JoinTeam({ joinTeamContent, formLinks }) {
   return (
-    <section className="section join-team-section" id="join-team">
+    <section className="section join-team-section reveal" id="join-team">
       <div className="join-team-content">
         <div>
           <p className="badge">{joinTeamContent.label}</p>
@@ -394,7 +394,7 @@ function ServiceCarousel({ servicePostsContent }) {
 
   return (
     <>
-      <div className="service-carousel">
+      <div className="service-carousel reveal reveal-right reveal-delay-1">
         <div className="carousel-header">
           <div>
             {servicePostsContent?.label && (
@@ -592,6 +592,81 @@ const defaultGalleryContent = {
   images: [],
 };
 
+function useScrollReveal(dependency) {
+  useEffect(() => {
+    const selector = ".reveal";
+
+    const handleIntersect = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("reveal-visible");
+        } else {
+          entry.target.classList.remove("reveal-visible");
+        }
+      });
+    };
+
+    const observer =
+      typeof IntersectionObserver !== "undefined"
+        ? new IntersectionObserver(handleIntersect, {
+            threshold: 0.15,
+            rootMargin: "0px 0px -60px 0px",
+          })
+        : null;
+
+    const observed = new WeakSet();
+
+    const observeAll = () => {
+      if (!observer) return;
+
+      const elements = Array.from(document.querySelectorAll(selector));
+      elements.forEach((el) => {
+        if (!observed.has(el)) {
+          observer.observe(el);
+          observed.add(el);
+        }
+      });
+    };
+
+    observeAll();
+
+    // Watch for DOM changes so newly added .reveal elements are observed
+    const mo = new MutationObserver((mutations) => {
+      let needsObserve = false;
+
+      for (const m of mutations) {
+        if (m.type === "childList") {
+          for (const node of Array.from(m.addedNodes)) {
+            if (node.nodeType === 1 && node.matches && node.matches(selector)) {
+              needsObserve = true;
+              break;
+            }
+            if (node.nodeType === 1 && node.querySelector && node.querySelector(selector)) {
+              needsObserve = true;
+              break;
+            }
+          }
+        }
+
+        if (m.type === "attributes" && m.target && m.target.matches && m.target.matches(selector)) {
+          needsObserve = true;
+        }
+
+        if (needsObserve) break;
+      }
+
+      if (needsObserve) observeAll();
+    });
+
+    mo.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ["class"] });
+
+    return () => {
+      if (observer) observer.disconnect();
+      mo.disconnect();
+    };
+  }, [dependency]);
+}
+
 function App() {
   const [content, setContent] = useState({
     siteInfo: defaultSiteInfo,
@@ -616,6 +691,8 @@ function App() {
     registration: defaultRegisterContent,
     joinTeam: defaultJoinTeamContent,
   });
+
+  useScrollReveal(content);
 
   useEffect(() => {
     async function loadContent() {
